@@ -32,14 +32,16 @@ const Hero = () => {
   return (
     <section id="home" className="relative w-full min-h-screen overflow-hidden bg-black flex flex-col justify-center">
       {/* Background Image */}
+      {/* Background Image - Positioned to the right on larger screens */}
       <img
         src={heroImage}
         alt="Background"
-        className="absolute top-0 left-0 w-full h-full object-cover object-[80%_20%] z-0 opacity-30 filter grayscale brightness-50"
+        className="absolute top-0 right-0 w-full md:w-[55%] h-full object-cover object-top z-0 opacity-40 filter grayscale brightness-50"
       />
 
-      {/* Dark Overlay Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10 pointer-events-none" />
+      {/* Dark Overlay Gradients for seamless text contrast and blending */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 md:via-black/50 to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 pointer-events-none" />
 
       {/* Content Container */}
       <div className="relative z-20 px-6 pt-32 pb-16 md:px-12 max-w-7xl mx-auto flex flex-col justify-between w-full h-full min-h-screen">
