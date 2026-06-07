@@ -25,7 +25,7 @@ const Navbar = () => {
         isOpen 
           ? 'bg-[#ff2a2a] py-4'
           : isScrolled 
-            ? 'bg-transparent py-4' 
+            ? 'bg-black/70 backdrop-blur-md border-b border-white/10 py-4 shadow-lg' 
             : 'bg-transparent py-6'
       }`}
     >

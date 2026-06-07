@@ -61,7 +61,7 @@ const About = () => {
               {/* Badge Meta details */}
               <div className="text-center font-mono">
                 <p className="text-red-500 text-sm font-bold tracking-widest uppercase">Developer ID</p>
-                <h3 className="text-base font-bold text-white tracking-wide mt-1 uppercase">D. N. Tripathi</h3>
+                <h3 className="text-base font-bold text-white tracking-wide mt-1 uppercase">Divyanshu Nath Tripathi</h3>
                 <p className="text-gray-400 text-[10px] mt-0.5">MMMUT CSE Student</p>
               </div>
             </div>
