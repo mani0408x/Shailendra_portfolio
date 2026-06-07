@@ -58,7 +58,7 @@ const Contact = () => {
               </div>
               <div className="bg-black/15 border border-white/10 rounded-2xl p-4">
                 <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-red-200 block mb-1">LinkedIn</span>
-                <a href="https://www.linkedin.com/in/divyanshu-nath-tripathi-774773334" target="_blank" rel="noopener noreferrer" className="text-sm font-bold hover:underline">divyanshu-nath-tripathi</a>
+                <a href="https://www.linkedin.com/in/divyanshu-nath-tripathi-774773334/" target="_blank" rel="noopener noreferrer" className="text-sm font-bold hover:underline">divyanshu-nath-tripathi</a>
               </div>
             </div>
           </div>
