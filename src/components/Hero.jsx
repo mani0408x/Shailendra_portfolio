@@ -187,7 +187,7 @@ const Hero = () => {
               { val: '3+', label: 'Core Projects', border: 'hover:border-accent-blue/40' },
               { val: '15+', label: 'Technologies', border: 'hover:border-accent-emerald/40' },
               { val: '1+', label: 'Internships', border: 'hover:border-accent-blue/40' },
-              { val: '200+', label: 'CSIS Members Led', border: 'hover:border-accent-emerald/40' }
+              { val: '20+', label: 'CSIS Members Led', border: 'hover:border-accent-emerald/40' }
             ].map((stat, idx) => (
               <div 
                 key={idx} 

@@ -75,7 +75,7 @@ const Leadership = () => {
             <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-white/5">
               <div>
                 <span className="text-[10px] font-mono text-gray-500 uppercase tracking-wider block">Community Scale</span>
-                <span className="text-lg font-black text-white font-display">200+ Active Members</span>
+                <span className="text-lg font-black text-white font-display">20+ Active Members</span>
               </div>
               <div>
                 <span className="text-[10px] font-mono text-gray-500 uppercase tracking-wider block">Event Reach</span>

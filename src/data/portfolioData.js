@@ -14,6 +14,7 @@ export const personalInfo = {
   aboutBio: "I am a passionate Computer Science Engineering student at Madan Mohan Malaviya University of Technology (MMMUT). Driven by intense curiosity and a love for building, I focus on Web Development, Artificial Intelligence, and DevOps. I'm constantly exploring new ideas, developing scalable backend systems, and crafting responsive user experiences. As the Vice-President of the Computer Science & Innovation Society (CSIS), I lead student initiatives and foster a collaborative coding culture.",
   avatarUrl: "", // Optional profile image path
   resumeUrl: "/resume.pdf",
+  web3formsKey: "", // Optional: Get a free key at web3forms.com to receive form submissions directly. Fallback is direct mailto link.
   socials: {
     github: "https://github.com/mani0408x",
     linkedin: "https://www.linkedin.com/in/shailendramanipandey",
@@ -168,7 +169,7 @@ export const leadershipData = {
   organization: "Computer Science & Innovation Society (CSIS)",
   period: "2025 - Present",
   responsibilities: [
-    "Manage society operations, leading a community of 200+ computing enthusiasts.",
+    "Manage society operations, leading a community of 20+ computing enthusiasts.",
     "Orchestrate technical workshops, hackathons, and regional coding contests, improving tech literacy.",
     "Promote collaborative open-source contributions and research groups among society members.",
     "Liaise with university administration and external sponsors for society budgets and events."
