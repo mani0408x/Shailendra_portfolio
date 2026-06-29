@@ -1,113 +1,102 @@
-import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { skillsCategories, skillsData } from '../data/portfolioData';
 
 const Skills = () => {
-  const [activeTab, setActiveTab] = useState('all');
+  // Group skills by category
+  const skillsByCategory = skillsCategories.reduce((acc, cat) => {
+    acc[cat.id] = {
+      name: cat.name,
+      skills: skillsData.filter(s => s.category === cat.id)
+    };
+    return acc;
+  }, {});
 
-  const categories = [
-    { id: 'all', name: 'All Skills' },
-    { id: 'programming', name: 'Programming' },
-    { id: 'web', name: 'Web Development' },
-    { id: 'ai', name: 'AI & ML' },
-    { id: 'backend', name: 'Backend Systems' },
-    { id: 'cloud', name: 'Cloud & Tools' }
-  ];
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
 
-  const skillsData = [
-    // Programming
-    { name: 'C++', category: 'programming', level: 'Intermediate', icon: '💻' },
-    { name: 'Python', category: 'programming', level: 'Advanced', icon: '🐍' },
-    { name: 'JavaScript', category: 'programming', level: 'Advanced', icon: '🟨' },
-    // Web Dev
-    { name: 'React', category: 'web', level: 'Advanced', icon: '⚛️' },
-    { name: 'HTML5', category: 'web', level: 'Advanced', icon: '🌐' },
-    { name: 'CSS3', category: 'web', level: 'Advanced', icon: '🎨' },
-    { name: 'Tailwind CSS', category: 'web', level: 'Advanced', icon: '🍃' },
-    { name: 'Node.js', category: 'web', level: 'Advanced', icon: '🟢' },
-    { name: 'Express.js', category: 'web', level: 'Advanced', icon: '⚙️' },
-    { name: 'MongoDB', category: 'web', level: 'Intermediate', icon: '🍃' },
-    // AI/ML
-    { name: 'Machine Learning', category: 'ai', level: 'Intermediate', icon: '🤖' },
-    { name: 'Computer Vision', category: 'ai', level: 'Advanced', icon: '👁️' },
-    { name: 'OpenCV', category: 'ai', level: 'Advanced', icon: '📸' },
-    // Backend
-    { name: 'REST APIs', category: 'backend', level: 'Advanced', icon: '🔗' },
-    { name: 'Event-Driven Architecture', category: 'backend', level: 'Intermediate', icon: '⚡' },
-    { name: 'Webhooks', category: 'backend', level: 'Advanced', icon: '🪝' },
-    // Cloud
-    { name: 'GCP', category: 'cloud', level: 'Intermediate', icon: '☁️' },
-    { name: 'Twilio', category: 'cloud', level: 'Intermediate', icon: '📞' },
-    { name: 'Git', category: 'cloud', level: 'Advanced', icon: '🌿' },
-    { name: 'GitHub', category: 'cloud', level: 'Advanced', icon: '🐙' }
-  ];
-
-  const filteredSkills = activeTab === 'all' 
-    ? skillsData 
-    : skillsData.filter(skill => skill.category === activeTab);
+  const cardVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
 
   return (
-    <section id="skills" className="bg-white py-28 px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:60px_60px]">
-      
-      {/* Torn paper top divider for styling continuity */}
-      <div className="absolute top-0 left-0 w-full pointer-events-none z-10 transform -translate-y-1 rotate-180">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12 md:h-20 fill-[#111111]">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.62,189.5,99.8,242.79,81.82,282.88,63.6,321.39,56.44Z"></path>
-        </svg>
-      </div>
+    <section id="skills" className="bg-[#0B0B0B] py-28 px-6 md:px-12 w-full relative overflow-hidden border-t border-white/5">
+      {/* Background blurs */}
+      <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] bg-accent-blue/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-20">
         
-        {/* Header content */}
+        {/* Header */}
         <div className="text-center md:text-left mb-16" data-aos="fade-up">
-          <div className="inline-block border border-gray-300 rounded-full px-5 py-1.5 text-xs md:text-sm text-gray-600 font-bold mb-4 shadow-sm bg-white">
-            My Tech Stack
+          <div className="inline-block border border-accent-emerald/30 bg-accent-emerald/10 rounded-full px-5 py-1.5 text-xs md:text-sm text-accent-emerald font-bold mb-4">
+            Tech Stack
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] tracking-tight">
-            Skills &amp; Technologies
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight font-display">
+            Skills &amp; Subjects
           </h2>
-          <p className="text-gray-500 text-sm md:text-base max-w-xl font-medium leading-relaxed mt-4">
-            An overview of the tools, frameworks, and programming languages I use to build scalable web applications, machine learning modules, and event-driven backend systems.
+          <p className="text-gray-400 text-sm md:text-base max-w-xl font-medium leading-relaxed mt-4">
+            A comprehensive mapping of my programming stack, databases, developer tooling, and core academic study areas.
           </p>
         </div>
 
-        {/* Categories Tab Navigation */}
-        <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-12" data-aos="fade-up" data-aos-delay="100">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveTab(cat.id)}
-              className={`px-5 py-2.5 rounded-full text-xs md:text-sm font-bold transition-all duration-300 shadow-sm border ${
-                activeTab === cat.id
-                  ? 'bg-red-600 text-white border-red-600 hover:shadow-[0_0_15px_rgba(239,68,68,0.4)]'
-                  : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50'
-              }`}
-            >
-              {cat.name}
-            </button>
-          ))}
-        </div>
-
-        {/* Skills Wall Grid */}
+        {/* Categories Grid */}
         <motion.div 
-          layout
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {filteredSkills.map((skill, idx) => (
-            <motion.div
-              layout
-              key={skill.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white border border-gray-100 hover:border-red-500/50 rounded-2xl p-5 shadow-[0_10px_25px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_35px_rgba(239,68,68,0.08)] flex flex-col items-center justify-center text-center group transition-all duration-300 cursor-pointer"
-            >
-              <span className="text-3xl mb-3 transform group-hover:scale-110 transition-transform duration-300">{skill.icon}</span>
-              <h3 className="text-sm font-black text-gray-900 mb-1">{skill.name}</h3>
-              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 group-hover:text-red-500 transition-colors">
-                {skill.level}
-              </span>
-            </motion.div>
-          ))}
+          {Object.keys(skillsByCategory).map((catId) => {
+            const group = skillsByCategory[catId];
+            return (
+              <motion.div
+                key={catId}
+                variants={cardVariants}
+                className="bg-white/[0.02] border border-white/5 hover:border-accent-blue/20 rounded-3xl p-6 backdrop-blur-md hover:bg-white/[0.04] transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  {/* Category Title */}
+                  <h3 className="text-lg font-black font-display text-white mb-4 flex items-center justify-between">
+                    <span>{group.name}</span>
+                    <span className="text-xs font-mono font-bold text-accent-blue px-2.5 py-0.5 rounded-full bg-accent-blue/10">
+                      {group.skills.length} Items
+                    </span>
+                  </h3>
+                  
+                  {/* Skills List Inside Category */}
+                  <div className="space-y-3">
+                    {group.skills.map((skill) => (
+                      <div 
+                        key={skill.name}
+                        className="flex items-center justify-between p-3 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-transparent hover:border-white/5 transition-all duration-300 group"
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="text-xl group-hover:scale-110 transition-transform duration-300">{skill.icon}</span>
+                          <span className="text-sm font-semibold text-gray-200 group-hover:text-white transition-colors">
+                            {skill.name}
+                          </span>
+                        </div>
+                        <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-gray-500 group-hover:text-accent-emerald transition-colors">
+                          {skill.level}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
       </div>

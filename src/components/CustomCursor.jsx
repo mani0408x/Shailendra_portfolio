@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 const CustomCursor = () => {
@@ -8,7 +8,7 @@ const CustomCursor = () => {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springConfig = { damping: 25, stiffness: 250, mass: 0.5 };
+  const springConfig = { damping: 30, stiffness: 300, mass: 0.6 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
@@ -59,14 +59,15 @@ const CustomCursor = () => {
 
   return (
     <motion.div
-      className="hidden md:block fixed top-0 left-0 w-8 h-8 rounded-full border border-red-500 pointer-events-none z-[999999]"
+      className="hidden md:block fixed top-0 left-0 w-8 h-8 rounded-full border border-accent-blue pointer-events-none z-[999999]"
       style={{
         x: cursorXSpring,
         y: cursorYSpring,
-        scale: hovered ? 1.5 : 1,
-        backgroundColor: hovered ? 'rgba(239, 68, 68, 0.3)' : 'rgba(239, 68, 68, 0.05)',
+        scale: hovered ? 1.6 : 1,
+        backgroundColor: hovered ? 'rgba(0, 102, 255, 0.15)' : 'rgba(0, 102, 255, 0.02)',
+        borderColor: hovered ? '#10B981' : '#0066FF', // transitions border to emerald on hover
       }}
-      transition={{ type: 'spring', stiffness: 500, damping: 28 }}
+      transition={{ type: 'spring', stiffness: 600, damping: 30 }}
     />
   );
 };
