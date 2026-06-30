@@ -38,9 +38,7 @@ const About = () => {
 
               {/* Badge Details */}
               <div className="text-center font-mono">
-                <span className="text-accent-emerald text-xs font-bold tracking-widest uppercase">Member ID • 2427</span>
                 <h3 className="text-lg font-black font-display text-white tracking-tight mt-1 uppercase">{personalInfo.name}</h3>
-                <p className="text-gray-400 text-[10px] mt-1 uppercase tracking-wide">Vice-President, CSIS</p>
               </div>
             </div>
           </div>

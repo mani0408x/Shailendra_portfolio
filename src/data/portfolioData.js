@@ -76,7 +76,7 @@ export const projectsData = [
       "Fully responsive and optimized layout across standard devices."
     ],
     github: "https://github.com/shailendramani/prayukti-v-lab",
-    demo: "https://github.com/shailendramani/prayukti-v-lab" // fallback to github if no separate demo is deployed
+    demo: "https://mmmut.prayukti.org/"
   },
   {
     id: 2,
@@ -94,7 +94,7 @@ export const projectsData = [
       "Clean REST API interface for triggering batches of phone calls."
     ],
     github: "https://github.com/shailendramani/caller-ai",
-    demo: "https://github.com/shailendramani/caller-ai"
+    demo: "https://caller.work/"
   },
   {
     id: 3,
@@ -112,7 +112,7 @@ export const projectsData = [
       "Automated visualization of monthly reach and audience metrics."
     ],
     github: "https://github.com/shailendramani/yt-channel-analysis",
-    demo: "https://github.com/shailendramani/yt-channel-analysis"
+    demo: "https://youtube-analysis-project.onrender.com/"
   }
 ];
 
